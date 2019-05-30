@@ -1,0 +1,61 @@
+service: chatty
+app: chatty
+tenant: stream
+
+frameworkVersion: '>=1.32.0 <2.0.0'
+
+provider:
+    name: aws
+    runtime: nodejs8.10
+    stage: prod
+    region: us-east-1
+    memorySize: 3008
+    timeout: 30
+    vpc:
+    environment:
+        DB_CONN: YOUR_MONGODB_CONNECTION_STRING # https://atlas.mongodb.com
+        DB_NAME: YOUR_MONGODB_DATABASE_NAME
+        DB_COL: YOUR_MONGODB_COLLECTION_NAME
+        TWILIO_SID: YOUR_TWILIO_SID
+        TWILIO_TOKEN: YOUR_TWILIO_TOKEN
+        TWILIO_NUMBER: YOUR_TWILIO_NUMBER
+        STREAM_KEY: YOUR_STREAM_KEY
+        STREAM_SECRET: YOUR_STREAM_SECRET
+        CHANNEL_TYPE: messaging # keep this as messaging
+        CHANNEL_NAME: chatty-kathy-5 # make this the same value as web
+functions:
+    auth:
+        handler: handler.auth
+        events:
+            - http:
+                  path: /auth
+                  method: POST
+                  cors: true
+    chat:
+        handler: handler.chat
+        events:
+            - http:
+                  path: /chat
+                  method: POST
+                  cors: true
+    sms:
+        handler: handler.sms
+        events:
+            - http:
+                  path: /sms
+                  method: POST
+                  cors: true
+
+plugins:
+    - serverless-offline
+    - serverless-webpack
+
+custom:
+    webpack:
+        packager: 'yarn'
+        webpackConfig: 'webpack.config.js'
+        includeModules:
+            forceInclude:
+                - '@babel/runtime'
+    serverless-offline:
+        port: 8000
