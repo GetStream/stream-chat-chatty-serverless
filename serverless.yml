@@ -1,6 +1,6 @@
-service: chatty
-app: chatty
-tenant: stream
+service: chatty # your serverless app name
+app: chatty # your serverless app name
+tenant: stream # your serverless tenant name
 
 frameworkVersion: '>=1.32.0 <2.0.0'
 
