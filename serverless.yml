@@ -1,6 +1,6 @@
-service: chatty # your serverless app name
-app: chatty # your serverless app name
-tenant: stream # your serverless tenant name
+service: YOUR_SERVERLESS_APP_NAME # https://dashboard.serverless.com
+app: YOUR_SERVERLESS_APP_NAME # https://dashboard.serverless.com
+tenant: YOUR_SERVERLESS_TENANT_NAME # https://dashboard.serverless.com
 
 frameworkVersion: '>=1.32.0 <2.0.0'
 
