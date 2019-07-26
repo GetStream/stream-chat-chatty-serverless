@@ -29,7 +29,6 @@
         "babel-preset-stage-3": "^6.24.1",
         "mongodb": "^3.2.6",
         "phone": "^2.3.13",
-        "react-router-dom": "^5.0.0",
         "stream-chat": "^0.13.3",
         "twilio": "^3.31.1"
     },
