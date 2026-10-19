@@ -1,3 +1,5 @@
+> **This repository is archived and will be deleted.** It is no longer maintained. For a current alternative, see [the Chat JavaScript docs](https://getstream.io/chat/docs/javascript/).
+
 # Serverless Environment for Chatty
 
 This repo holds the code for the Serverless enviroment that supports the frontend [Chatty](https://github.com/GetStream/stream-chat-chatty-web) application.
